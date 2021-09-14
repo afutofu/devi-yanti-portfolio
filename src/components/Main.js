@@ -2,13 +2,14 @@ import React, { useRef, useEffect, useState, useCallback } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { TimelineLite, Power3 } from "gsap";
 
-import skyrimWallpaper from "../assets/wallpaper-skyrim-min.jpg";
+import natureWallpaper from "../assets/wallpaper-nature-min.jpg";
 
 import LoadingScreen from "./LoadingScreen";
 import Navbar from "./Navbar";
 import Home from "./Home";
 import About from "./About";
 import Skills from "./Skills";
+import Experience from "./Experience";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import Footer from "./Footer";
@@ -35,8 +36,8 @@ const MainComp = styled.div`
 
 const BackgroundImage = styled.img.attrs(() => {
   return {
-    src: skyrimWallpaper,
-    alt: "skyrimWallpaper",
+    src: natureWallpaper,
+    alt: "natureWallpaper",
   };
 })`
   position: fixed;
@@ -61,6 +62,7 @@ const ContentBackground = styled.div`
 `;
 
 const theme = {
+  backgroundColor: "#fafafa",
   color: "#36b547",
 };
 
@@ -69,7 +71,6 @@ const Main = () => {
   const [homeTl, setHomeTl] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [masterTl] = useState(new TimelineLite());
-  const backgroundColor = "#fafafa";
 
   let main = useRef(null);
   // let content = useRef(null);
@@ -88,14 +89,14 @@ const Main = () => {
       duration: 0,
     })
       .to(contentBg1, {
-        backgroundColor: backgroundColor,
+        backgroundColor: theme.backgroundColor,
         duration: 2,
         ease: Power3.easeInOut,
       })
       .to(
         contentBg2,
         {
-          backgroundColor: backgroundColor,
+          backgroundColor: theme.backgroundColor,
           duration: 2,
           ease: Power3.easeInOut,
         },
@@ -138,6 +139,7 @@ const Main = () => {
               <Home getHomeTl={getHomeTl} />
               <About />
               <Skills />
+              <Experience />
             </ContentBackground>
             <Projects />
             <ContentBackground ref={(el) => (contentBg2 = el)}>

@@ -38,7 +38,7 @@ const NavItems = styled.ul`
   box-sizing: border-box;
 
   @media only screen and (min-width: 992px) {
-    max-width: 400px;
+    max-width: 500px;
   }
 
   @media only screen and (max-width: 600px) {
@@ -96,6 +96,7 @@ const Navbar = ({ getNavbarTl }) => {
   let logo = useRef(null);
   let about = useRef(null);
   let skills = useRef(null);
+  let experience = useRef(null);
   let projects = useRef(null);
   let contact = useRef(null);
   // let resume = useRef(null);
@@ -119,7 +120,7 @@ const Navbar = ({ getNavbarTl }) => {
       autoAlpha: 0,
       ease: Power3.easeOut,
     }).staggerFrom(
-      [about, skills, projects, contact],
+      [about, skills, experience, projects, contact],
       0.7,
       {
         y: -100,
@@ -204,6 +205,18 @@ const Navbar = ({ getNavbarTl }) => {
             ignoreCancelEvents={true}
           >
             Skills
+          </Link>
+        </NavItem>
+        <NavItem ref={(el) => (experience = el)}>
+          <Link
+            to="experience"
+            smooth={true}
+            duration={1000}
+            spy={true}
+            offset={-50}
+            ignoreCancelEvents={true}
+          >
+            Experience
           </Link>
         </NavItem>
         <NavItem ref={(el) => (projects = el)}>
