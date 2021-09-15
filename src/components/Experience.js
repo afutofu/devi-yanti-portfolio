@@ -106,11 +106,8 @@ const TitleLine = styled.div`
 const ExperienceArea = styled.div`
   position: relative;
   width: 100%;
-  padding: 40px 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  margin-top: 40px;
+  padding-bottom: 40px;
   box-sizing: border-box;
 `;
 
@@ -120,6 +117,18 @@ const Pole = styled.div`
   height: 100%;
   left: 50%;
   background-color: lightgray;
+
+  @media only screen and (max-width: 992px) {
+    left: 49px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    left: 29px;
+  }
+
+  @media only screen and (max-width: 450px) {
+    left: 20px;
+  }
 `;
 
 const ExperienceItemArea = styled.div`
@@ -129,7 +138,7 @@ const ExperienceItemArea = styled.div`
   justify-content: space-evenly;
   align-items: center;
   box-sizing: border-box;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 
   font-size: 20px;
   font-weight: 400;
@@ -161,18 +170,52 @@ const Year = styled.div`
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.backgroundColor};
   color: ${({ theme }) => theme.color};
+
+  @media only screen and (max-width: 992px) {
+    left: 27px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    left: 7px;
+  }
+
+  @media only screen and (max-width: 450px) {
+    left: 3px;
+  }
 `;
 
 const ExperienceItem = styled.div`
   position: relative;
   width: 40%;
   align-self: ${({ isEven }) => (isEven ? "flex-start" : "flex-end")};
-  background-color: ${(props) => props.theme.color};
   box-sizing: border-box;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
   border: lightgray 1px solid;
+  margin-top: 40px;
+
+  @media only screen and (max-width: 992px) {
+    align-self: flex-start;
+    width: 82%;
+    margin-left: 18%;
+  }
+
+  @media only screen and (max-width: 700px) {
+    width: 80%;
+    margin-left: 20%;
+  }
+
+  @media only screen and (max-width: 600px) {
+  }
+
+  @media only screen and (max-width: 450px) {
+    width: 75%;
+    margin-left: 25%;
+  }
+
+  @media only screen and (max-width: 350px) {
+  }
 `;
 
 const CompanySection = styled.div`
@@ -196,6 +239,28 @@ const Pointer = styled.div`
   transform: rotate(45deg);
   border: lightgray 1px solid;
   box-sizing: border-box;
+
+  @media only screen and (max-width: 992px) {
+    left: -10px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    top: 10px;
+  }
+
+  @media only screen and (max-width: 450px) {
+    top: 10px;
+    left: -9px;
+    width: 18px;
+    height: 18px;
+  }
+
+  @media only screen and (max-width: 350px) {
+    top: 10px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 const DescSection = styled.div`
@@ -204,6 +269,7 @@ const DescSection = styled.div`
   padding: 10px;
   background-color: white;
   color: #222;
+  box-sizing: border-box;
 `;
 
 const experiences = [
