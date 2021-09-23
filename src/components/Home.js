@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import { gsap, TimelineLite, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import face from "../assets/face.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const HomeComp = styled.div`
@@ -20,7 +22,11 @@ const HomeComp = styled.div`
 
 const Container = styled.div`
   margin: 0px 15%;
+  width: 100%;
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   @media only screen and (max-width: 992px) {
     margin: 0px 10%;
@@ -33,12 +39,33 @@ const Container = styled.div`
 
 const Content = styled.div`
   position: relative;
-  margin: 0 auto;
+  margin: 0;
 
   /* padding-bottom: 150px; */
   box-sizing: border-box;
   @media only screen and (min-width: 2500px) {
-    max-width: 800px;
+    max-width: 900px;
+  }
+`;
+
+const FaceImage = styled.img.attrs((props) => {
+  return {
+    src: props.src,
+  };
+})`
+  opacity: 0.9;
+  width: 500px;
+
+  @media only screen and (max-width: 992px) {
+    width: 380px;
+  }
+
+  @media only screen and (max-width: 765px) {
+    width: 280px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    display: none;
   }
 `;
 
@@ -210,6 +237,7 @@ const Button = styled.button`
 
 const Home = ({ getHomeTl }) => {
   // let home = useRef(null);
+  let bg = useRef(null);
   let introduction = useRef(null);
   let name = useRef(null);
   let motto = useRef(null);
@@ -236,7 +264,7 @@ const Home = ({ getHomeTl }) => {
       },
       0.175,
       "-=2"
-    );
+    ).from(bg, 1.5, { opacity: 0 }, "-=0.7");
 
     return tl;
   };
@@ -263,6 +291,7 @@ const Home = ({ getHomeTl }) => {
             <Button ref={(el) => (button = el)}>Contact Me</Button>
           </a>
         </Content>
+        <FaceImage ref={(el) => (bg = el)} src={face} />
       </Container>
     </HomeComp>
   );
