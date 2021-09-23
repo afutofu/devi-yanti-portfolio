@@ -25,7 +25,7 @@ const NavbarComp = styled.div`
 const NavItems = styled.ul`
   width: 100%;
   min-width: 300px;
-  max-width: 400px;
+  max-width: 500px;
   color: #222;
   font-family: "Quicksand", "san-serif";
   display: flex;
@@ -37,13 +37,10 @@ const NavItems = styled.ul`
   margin: 0;
   box-sizing: border-box;
 
-  @media only screen and (min-width: 992px) {
-    max-width: 500px;
-  }
-
   @media only screen and (max-width: 600px) {
     justify-content: flex-end;
     min-width: unset;
+    max-width: 500px;
   }
 `;
 
@@ -91,7 +88,7 @@ const NavItem = styled.li`
 //   font-size: 0.9em;
 // `;
 
-const Navbar = ({ getNavbarTl }) => {
+const Navbar = ({ getNavbarTl, theme }) => {
   let navbar = useRef(null);
   let logo = useRef(null);
   let about = useRef(null);
@@ -105,7 +102,7 @@ const Navbar = ({ getNavbarTl }) => {
     let tl = new TimelineLite();
 
     tl.to(navbar, {
-      backgroundColor: "#fafafa",
+      backgroundColor: theme.backgroundColor,
       duration: 2,
       ease: Power3.easeInOut,
     });

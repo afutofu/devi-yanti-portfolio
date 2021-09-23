@@ -62,7 +62,7 @@ const ContentBackground = styled.div`
 `;
 
 const theme = {
-  backgroundColor: "#fafafa",
+  backgroundColor: "#f2fff5",
   color: "#36b547",
 };
 
@@ -132,13 +132,13 @@ const Main = () => {
       {isLoading && <LoadingScreen isLoading={setIsLoadingCallback} />}
       <MainComp ref={(el) => (main = el)}>
         <ThemeProvider theme={theme}>
-          <Navbar getNavbarTl={getNavbarTl} />
+          <Navbar getNavbarTl={getNavbarTl} theme={theme} />
           <Content>
             <BackgroundImage />
             <ContentBackground ref={(el) => (contentBg1 = el)}>
               <Home getHomeTl={getHomeTl} />
               <About />
-              <Skills />
+              {/* <Skills /> */}
               <Experience />
             </ContentBackground>
             <Projects />
